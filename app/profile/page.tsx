@@ -13,16 +13,16 @@ const page = () => {
   return (
     <>
       <div className="text-white h-screen relative">
-        <div className="flex bg-muted-foreground overflow-hidden">
+        <div className="flex overflow-hidden border">
           <Link
             href="/"
-            className=" p-3 bg-muted rounded-lg cursor-pointer lg:hover:bg-muted-foreground lg:hover:text-black transition-colors duration-[0.5s]"
+            className=" p-3 bg-muted rounded-lg cursor-pointer"
           >
             <ArrowLeft />
           </Link>
-          <div className="flex-grow bg-muted-foreground"/>
-          <div className="p-3 bg-muted rounded-lg cursor-pointer lg:hover:bg-muted-foreground lg:hover:text-black transition-colors duration-[0.5s] active:rotate-45">
-            <Settings />
+          <div className="flex-grow"/>
+          <div className="p-3 bg-muted rounded-lg cursor-pointer">
+            <Settings className="active:rotate-45 transition-all duration-75" />
           </div>
         </div>
 

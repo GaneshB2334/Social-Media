@@ -7,7 +7,7 @@ import { moveRight } from "../app/utils/motion";
 
 const Header = () => {
   return (
-    <div className="h-20 border-white shadow-md shadow-black border flex items-center px-3">
+    <div className="h-20 shadow-md shadow-black border flex items-center px-3">
       <motion.div
         variants={moveRight(0, 0.5)}
         initial="hidden"

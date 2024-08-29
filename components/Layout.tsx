@@ -8,10 +8,11 @@ import SuspenseLoading from "./SuspenseLoading";
 const Layout = ({ children }: { children: ReactNode }) => {
   const pathname = usePathname();
   const isAuthPage = pathname === "/login" || pathname === "/profile";
+  const isSearchPage = pathname === "/search";
 
   return (
     <>
-      {!isAuthPage && <Header />}
+      {(!isAuthPage && !isSearchPage) && <Header />}
       <Suspense fallback={<SuspenseLoading />}>{children}</Suspense>
       {!isAuthPage && <Footer />}
     </>
