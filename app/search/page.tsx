@@ -1,9 +1,9 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { SearchIcon } from "lucide-react";
 import { motion } from "framer-motion";
-import { moveDown, moveLeft, moveRight, moveUp } from "../utils/motion";
+import { SearchIcon } from "lucide-react";
+import { moveLeft, moveRight, moveUp } from "../utils/motion";
 
 const Search = () => {
   return (
@@ -16,7 +16,7 @@ const Search = () => {
             animate="visible"
             className="flex-shrink-0"
           >
-            <SearchIcon className="" />
+            <SearchIcon />
           </motion.div>
           <motion.div
             variants={moveUp(0, 0.3)}

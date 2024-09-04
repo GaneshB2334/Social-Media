@@ -3,12 +3,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Login from "./components/Login";
 import Register from "./components/Register";
 
-import { useToast } from "@/components/ui/use-toast";
-
 const page = () => {
-  const { toast } = useToast();
   return (
-    <div className="w-screen h-screen flex justify-center items-center">
+    <div className="w-screen h-screen flex flex-col justify-center items-center overflow-hidden">
       <Tabs defaultValue="login" className="w-[400px]">
         <TabsList className="grid w-full grid-cols-2 rounded-full">
           <TabsTrigger className="rounded-full" value="login">

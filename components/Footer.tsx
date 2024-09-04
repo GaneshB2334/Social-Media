@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Home, Search, User, UserPlus } from "lucide-react";
+import { FileQuestion, Home, Search, User, UserPlus } from "lucide-react";
 import Link from "next/link";
 import { moveUp } from "../app/utils/motion";
 
@@ -22,8 +22,8 @@ const Footer = () => {
           initial="hidden"
           animate="visible"
         >
-          <Link href="/add-friend">
-            <UserPlus color="white" cursor={"pointer"} />
+          <Link href="/not-decided">
+            <FileQuestion color="white" cursor={"pointer"} />
           </Link>
         </motion.div>
         <motion.div

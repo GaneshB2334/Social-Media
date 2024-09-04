@@ -12,7 +12,7 @@ const moveUp = (delay: number, duration: number, damping?: number) => {
         duration: duration,
         type: "spring",
         stiffness: 90,
-        damping: 10,
+        damping: damping ? damping : 10,
       },
     },
   };
@@ -32,7 +32,7 @@ const moveRight = (delay: number, duration: number, damping?: number) => {
         duration: duration,
         type: "spring",
         stiffness: 90,
-        damping: 10,
+        damping: damping ? damping : 10,
       },
     },
   };
@@ -52,7 +52,7 @@ const moveLeft = (delay: number, duration: number, damping?: number) => {
         duration: duration,
         type: "spring",
         stiffness: 90,
-        damping: 10,
+        damping: damping ? damping : 10,
       },
     },
   };
@@ -72,7 +72,7 @@ const moveDown = (delay: number, duration: number, damping?: number) => {
         duration: duration,
         type: "spring",
         stiffness: 90,
-        damping: 10,
+        damping: damping ? damping : 10,
       },
     },
   };
