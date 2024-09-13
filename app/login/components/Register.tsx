@@ -1,5 +1,4 @@
 import React, { ChangeEvent, useState } from "react";
-import { moveLeft, moveRight, moveUp, scaleUp } from "@/app/utils/motion";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -11,7 +10,6 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { motion } from "framer-motion";
 import { useToast } from "@/components/ui/use-toast";
 
 const register = () => {
@@ -55,28 +53,18 @@ const register = () => {
   return (
     <Card>
       <CardHeader>
-        <motion.div
-          variants={moveLeft(0, 0.3)}
-          initial="hidden"
-          animate="visible"
+        <div
         >
           <CardTitle>Register</CardTitle>
-        </motion.div>
-        <motion.div
-          variants={moveLeft(0.1, 0.3)}
-          initial="hidden"
-          animate="visible"
+        </div>
+        <div
         >
           <CardDescription>Create an account here.</CardDescription>
-        </motion.div>
+        </div>
       </CardHeader>
       <CardContent className="space-y-2">
-        <motion.div>
-          <motion.div
-            variants={moveLeft(0.2, 0.3)}
-            initial="hidden"
-            animate="visible"
-            className="space-y-1"
+        <div>
+          <div
           >
             <Label htmlFor="username">Username</Label>
             <Input
@@ -89,12 +77,8 @@ const register = () => {
               value={username}
               onChange={handleUsername}
             />
-          </motion.div>
-          <motion.div
-            variants={moveLeft(0.3, 0.3)}
-            initial="hidden"
-            animate="visible"
-            className="space-y-1"
+          </div>
+          <div
           >
             <Label htmlFor="password">Create password</Label>
             <Input
@@ -107,11 +91,8 @@ const register = () => {
               value={password}
               onChange={handlePassword}
             />
-          </motion.div>
-          <motion.div
-          variants={moveLeft(0.4, 0.3)}
-          initial="hidden"
-          animate="visible" className="space-y-1">
+          </div>
+          <div>
             <Label htmlFor="cnfpassword">Re-enter password</Label>
             <Input
               className="rounded-xl"
@@ -123,20 +104,16 @@ const register = () => {
               value={cnfPassword}
               onChange={handleCnfPassword}
             />
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </CardContent>
       <CardFooter>
-        <motion.div
-          variants={moveLeft(0.5, 0.3)}
-          initial="hidden"
-          animate="visible"
-          className="w-full"
+        <div
         >
           <Button className="w-full rounded-xl" onClick={handleRegister}>
             Register
           </Button>
-        </motion.div>
+        </div>
       </CardFooter>
     </Card>
   );

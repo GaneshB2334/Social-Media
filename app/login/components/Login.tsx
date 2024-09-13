@@ -1,4 +1,3 @@
-import { moveLeft, moveRight, moveUp, scaleUp } from "@/app/utils/motion";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -11,7 +10,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/components/ui/use-toast";
-import { motion } from "framer-motion";
 import { ChangeEvent, useState } from "react";
 
 const login = () => {
@@ -61,30 +59,20 @@ const login = () => {
   return (
     <Card className="rounded-xl">
       <CardHeader>
-        <motion.div
-          variants={moveRight(0, 0.3)}
-          initial="hidden"
-          animate="visible"
+        <div
         >
           <CardTitle>Login</CardTitle>
-        </motion.div>
-        <motion.div
-          variants={moveRight(0.1, 0.3)}
-          initial="hidden"
-          animate="visible"
+        </div>
+        <div
         >
           <CardDescription>
             Login to your account to access your profile.
           </CardDescription>
-        </motion.div>
+        </div>
       </CardHeader>
       <CardContent className="space-y-2">
-        <motion.div>
-          <motion.div
-            variants={moveRight(0.2, 0.3)}
-            initial="hidden"
-            animate="visible"
-            className="space-y-1"
+        <div>
+          <div
           >
             <Label htmlFor="username">Username</Label>
             <Input
@@ -97,12 +85,8 @@ const login = () => {
               value={username}
               onChange={handleUsername}
             />
-          </motion.div>
-          <motion.div
-            variants={moveRight(0.3, 0.3)}
-            initial="hidden"
-            animate="visible"
-            className="space-y-1"
+          </div>
+          <div
           >
             <Label htmlFor="password">Password</Label>
             <Input
@@ -115,20 +99,16 @@ const login = () => {
               value={password}
               onChange={handlePassword}
             />
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </CardContent>
       <CardFooter>
-        <motion.div
-          variants={moveRight(0.4, 0.3)}
-          initial="hidden"
-          animate="visible"
-          className="w-full"
+        <div
         >
           <Button onClick={HandleLogin} className="w-full rounded-xl">
             Login
           </Button>
-        </motion.div>
+        </div>
       </CardFooter>
     </Card>
   );
