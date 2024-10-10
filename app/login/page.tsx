@@ -7,11 +7,11 @@ const page = () => {
   return (
     <div className="w-screen h-screen flex flex-col justify-center items-center overflow-hidden">
       <Tabs defaultValue="login" className="w-[400px]">
-        <TabsList className="grid w-full grid-cols-2 rounded-full">
-          <TabsTrigger className="rounded-full" value="login">
+        <TabsList className="grid w-full grid-cols-2 rounded-lg">
+          <TabsTrigger className="rounded-lg" value="login">
             Login
           </TabsTrigger>
-          <TabsTrigger className="rounded-full" value="register">
+          <TabsTrigger className="rounded-lg" value="register">
             Register
           </TabsTrigger>
         </TabsList>

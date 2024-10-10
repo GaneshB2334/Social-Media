@@ -19,7 +19,7 @@ const Search = () => {
             className="rounded-full"
           >
             <Input
-              className="rounded-full w-[350px]"
+              className="rounded-full md:w-[350px]"
               type="text"
               placeholder="Search here..."
             />

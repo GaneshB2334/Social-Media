@@ -10,14 +10,17 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/components/ui/use-toast";
-import { ChangeEvent, useState } from "react";
+import { Github } from "lucide-react";
+import { signIn, useSession } from "next-auth/react";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 const login = () => {
   const { toast } = useToast();
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  const HandleLogin = () => {
+  const HandleLogin = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     if (username === "" || password === "") {
       toast({
         title: "Please fill all the fields",
@@ -56,60 +59,69 @@ const login = () => {
     }
   };
 
+  const { data: session } = useSession();
+
   return (
     <Card className="rounded-xl">
       <CardHeader>
-        <div
-        >
+        <div>
           <CardTitle>Login</CardTitle>
         </div>
-        <div
-        >
+        <div>
           <CardDescription>
             Login to your account to access your profile.
           </CardDescription>
         </div>
       </CardHeader>
-      <CardContent className="space-y-2">
-        <div>
-          <div
-          >
-            <Label htmlFor="username">Username</Label>
-            <Input
-              className="rounded-xl"
-              required
-              id="username"
-              placeholder="John Doe"
-              type="text"
-              name="username"
-              value={username}
-              onChange={handleUsername}
-            />
+      <form onSubmit={HandleLogin}>
+        <CardContent className="space-y-2">
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="username" className="text-lg">
+                Username
+              </Label>
+              <Input
+                className="rounded-xl"
+                required
+                id="username"
+                placeholder="John Doe"
+                type="text"
+                name="username"
+                value={username}
+                onChange={handleUsername}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="password" className="text-lg">
+                Password
+              </Label>
+              <Input
+                className="rounded-xl"
+                required
+                id="password"
+                placeholder="Password"
+                type="password"
+                name="password"
+                value={password}
+                onChange={handlePassword}
+              />
+            </div>
           </div>
-          <div
-          >
-            <Label htmlFor="password">Password</Label>
-            <Input
-              className="rounded-xl"
-              required
-              id="password"
-              placeholder="Password"
-              type="password"
-              name="password"
-              value={password}
-              onChange={handlePassword}
-            />
+        </CardContent>
+        <CardFooter>
+          <div className="w-full">
+            <Button type="submit" className="w-full rounded-xl">
+              Login
+            </Button>
           </div>
-        </div>
-      </CardContent>
-      <CardFooter>
-        <div
-        >
-          <Button onClick={HandleLogin} className="w-full rounded-xl">
-            Login
-          </Button>
-        </div>
-      </CardFooter>
+        </CardFooter>
+      </form>
+      <p className="w-full text-center">OR</p>
+      <div className="w-full flex justify-center my-5">
+
+      <Button onClick={() => signIn('github')}><Github className="mr-2"/> Login with Github</Button>
+      </div>
+      {session?.user?.email}
     </Card>
   );
 };

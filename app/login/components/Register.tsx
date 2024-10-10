@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -39,7 +39,8 @@ const register = () => {
     setCnfPassword(e.target.value);
   };
 
-  const handleRegister = () => {
+  const handleRegister = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     if (username === "" || password === "" || cnfPassword === "") {
       toast({
         title: "Please fill all the fields",
@@ -53,64 +54,61 @@ const register = () => {
   return (
     <Card>
       <CardHeader>
-        <div
-        >
+        <div>
           <CardTitle>Register</CardTitle>
         </div>
-        <div
-        >
+        <div>
           <CardDescription>Create an account here.</CardDescription>
         </div>
       </CardHeader>
-      <CardContent className="space-y-2">
-        <div>
-          <div
-          >
-            <Label htmlFor="username">Username</Label>
-            <Input
-              className="rounded-xl"
-              required
-              id="username"
-              type="text"
-              name="username"
-              placeholder="John Doe"
-              value={username}
-              onChange={handleUsername}
-            />
+      <form onSubmit={handleRegister}>
+        <CardContent className="space-y-2">
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="username" className="text-lg">Username</Label>
+              <Input
+                className="rounded-xl"
+                required
+                id="username"
+                type="text"
+                name="username"
+                placeholder="John Doe"
+                value={username}
+                onChange={handleUsername}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="password" className="text-lg">Create password</Label>
+              <Input
+                className="rounded-xl"
+                required
+                id="password"
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={password}
+                onChange={handlePassword}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="cnfpassword" className="text-lg">Re-enter password</Label>
+              <Input
+                className="rounded-xl"
+                required
+                id="cnfpassword"
+                type="password"
+                name="cnfpassword"
+                placeholder="Re-enter password"
+                value={cnfPassword}
+                onChange={handleCnfPassword}
+              />
+            </div>
           </div>
-          <div
-          >
-            <Label htmlFor="password">Create password</Label>
-            <Input
-              className="rounded-xl"
-              required
-              id="password"
-              type="text"
-              name="password"
-              placeholder="Password"
-              value={password}
-              onChange={handlePassword}
-            />
-          </div>
-          <div>
-            <Label htmlFor="cnfpassword">Re-enter password</Label>
-            <Input
-              className="rounded-xl"
-              required
-              id="cnfpassword"
-              type="text"
-              name="cnfpassword"
-              placeholder="Re-enter password"
-              value={cnfPassword}
-              onChange={handleCnfPassword}
-            />
-          </div>
-        </div>
-      </CardContent>
+        </CardContent>
+      </form>
       <CardFooter>
-        <div
-        >
-          <Button className="w-full rounded-xl" onClick={handleRegister}>
+        <div className="w-full">
+          <Button className="w-full rounded-xl" type="submit">
             Register
           </Button>
         </div>
